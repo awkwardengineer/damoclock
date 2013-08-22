@@ -126,9 +126,9 @@ function calcLine(digit){
         break;
                
     case 8:
-        disp.text = ".  .   __";
-        disp.dots = [1,1,0,0];
-        disp.dashes = [0,0,1];
+        disp.text = ".  __ __";
+        disp.dots = [1,0,0,0];
+        disp.dashes = [0,1,1];
         break;    
     case 9:
         disp.text = " __    __";
