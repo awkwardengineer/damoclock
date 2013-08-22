@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Damo Clock SVG project">
+  <meta name="author" content="Sam Feller">
+
+  <title>Damo Clock</title>
+
+  <!-- Normalize.css reset CSS -->
+<!-- <link href="css/normalize.css" rel="stylesheet"> -->
+
+  <!-- Custom styles for this template -->
+  <style>  </style>
+  
+  <!-- jquery hosted on google -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="scripts/calcBlock.js"></script>
+  <script src="scripts/d3.v3.js"></script>
+
+  <script>
+        $(document).ready(function() {
+            
+            d3.select('circle').attr('visibility', 'hidden');
+            d3.select('rect').attr('visibility', 'hidden');
+            d3.select('#base').attr('visibility', 'visible');
+            
+            var j=0;
+            var ans;
+            
+            var int=self.setInterval(function(){
+            
+                j++;
+                if (j == 100){
+                    j = 0;
+                }
+                $("#number").text(j);
+                
+                ans = calcBlock(j);
+                console.log("here ya go!:");
+                console.log(ans);
+                console.log(ans[0].dots[0]);
+                
+                if (ans[0].dots[0] == 0){ d3.select('#dot1').attr('visibility', 'hidden');} else{ d3.select('#dot1').attr('visibility', 'visible');}
+                if (ans[0].dots[1] == 0){ d3.select('#dot2').attr('visibility', 'hidden');} else{ d3.select('#dot2').attr('visibility', 'visible');}
+                if (ans[0].dots[2] == 0){ d3.select('#dot3').attr('visibility', 'hidden');} else{ d3.select('#dot3').attr('visibility', 'visible');}
+                if (ans[0].dots[3] == 0){ d3.select('#dot4').attr('visibility', 'hidden');} else{ d3.select('#dot4').attr('visibility', 'visible');}
+                if (ans[0].dashes[0] == 0){ d3.select('#seg1').attr('visibility', 'hidden');} else{ d3.select('#seg1').attr('visibility', 'visible');}
+                if (ans[0].dashes[1] == 0){ d3.select('#seg2').attr('visibility', 'hidden');} else{ d3.select('#seg2').attr('visibility', 'visible');}
+                if (ans[0].dashes[2] == 0){ d3.select('#seg3').attr('visibility', 'hidden');} else{ d3.select('#seg3').attr('visibility', 'visible');}
+                
+                if (ans[1].dots[0] == 0){ d3.select('#dot5').attr('visibility', 'hidden');} else{ d3.select('#dot5').attr('visibility', 'visible');}
+                if (ans[1].dots[1] == 0){ d3.select('#dot6').attr('visibility', 'hidden');} else{ d3.select('#dot6').attr('visibility', 'visible');}
+                if (ans[1].dots[2] == 0){ d3.select('#dot7').attr('visibility', 'hidden');} else{ d3.select('#dot7').attr('visibility', 'visible');}
+                if (ans[1].dots[3] == 0){ d3.select('#dot8').attr('visibility', 'hidden');} else{ d3.select('#dot8').attr('visibility', 'visible');}
+                if (ans[1].dashes[0] == 0){ d3.select('#seg4').attr('visibility', 'hidden');} else{ d3.select('#seg4').attr('visibility', 'visible');}
+                if (ans[1].dashes[1] == 0){ d3.select('#seg5').attr('visibility', 'hidden');} else{ d3.select('#seg5').attr('visibility', 'visible');}
+                if (ans[1].dashes[2] == 0){ d3.select('#seg6').attr('visibility', 'hidden');} else{ d3.select('#seg6').attr('visibility', 'visible');}
+                
+                
+            },750);
+
+            
+        });
+        
+        
+
+  </script>
+  
+</head>
+
+<body>
+
+<!-- Wrap all page content here -->
+
+<div class="wrap" style="text-align:center;">
+
+    <div id="number">1</div>
+    
+    <svg width="800" height="500" >
+        <rect width="640" height="40" rx="20" ry="20" x="80"  y="330" id="base" />
+        <rect width="240" height="40" rx="20" ry="20" x="80"  y="230" id="seg4" />
+        <rect width="240" height="40" rx="20" ry="20" x="280" y="230" id="seg5" />
+        <rect width="240" height="40" rx="20" ry="20" x="480" y="230" id="seg6" />
+        <rect width="240" height="40" rx="20" ry="20" x="80"  y="130" id="seg1" />
+        <rect width="240" height="40" rx="20" ry="20" x="280" y="130" id="seg2" />
+        <rect width="240" height="40" rx="20" ry="20" x="480" y="130" id="seg3" />
+        <circle cx="100" cy="250" r="20" id="dot5" /> 
+        <circle cx="300" cy="250" r="20" id="dot6" />
+        <circle cx="500" cy="250" r="20" id="dot7" />
+        <circle cx="700" cy="250" r="20" id="dot8" />
+        <circle cx="100" cy="150" r="20" id="dot1" />
+        <circle cx="300" cy="150" r="20" id="dot2" />
+        <circle cx="500" cy="150" r="20" id="dot3" />
+        <circle cx="700" cy="150" r="20" id="dot4" />
+        
+        
+    </svg>
+
+  <!-- closing tag of last wrap --> 
+</div>
+
+
+ 
+</body></html>
